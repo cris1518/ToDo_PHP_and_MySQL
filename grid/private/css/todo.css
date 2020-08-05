@@ -1,0 +1,113 @@
+.inp-todo {
+    background: #0a67c1;
+    border: none;
+    color: #fff;
+    padding: 15px 13px 15px 13px;
+    width: 90%;
+    border-radius: 5px !important;
+    transition: border-radius 1s ease, border-color 2s ease;
+}
+
+.inp-todo:hover {
+    border-bottom: 1px solid #fff;
+    border-radius: 10px !important;
+    transition: border-radius 1s ease, border-color 2s ease;
+}
+
+.inp-todo-title {
+
+    font-size: 1.2em;
+
+}
+
+
+.inp-todo-descr {
+
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.todo-div {
+    width: 100%;
+    border-bottom: 2px solid #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.VoiceTitle {
+    border: 2px solid #064786;
+    background: none;
+    color: #fff;
+    font-size: 1.2em;
+    height: 1em;
+    padding: 10px 0 10px 10px;
+
+}
+
+
+.VoiceTitle:active,
+.VoiceTitle:focus {
+    background: #064786;
+    color: #fff;
+}
+
+
+@media (min-width: 300px) and (max-width: 800px) {
+
+    .todo-info {
+        display: block;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    .todo-page-container {
+        background: #0a67c1;
+        width: 100%;
+        border-radius: 10px;
+        min-height: 300px;
+        display: grid;
+        grid-template-columns: 600px;
+        grid-template-rows: auto;
+        padding: 10px 0 30px 0;
+    }
+
+
+
+}
+
+
+@media (min-width: 900px) {
+    .todo-info {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-column-gap: 30px;
+
+        width: 50%;
+    }
+
+    .todo-page-container {
+        background: #0a67c1;
+        width: 90%;
+        border-radius: 10px;
+        min-height: 300px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        padding: 10px 0 30px 0;
+    }
+
+
+}
+
+.menu-action {
+    position: absolute;
+    top: 140px;
+    right: 18px;
+    background: #529fff;
+    padding: 10px 10px 10px 15px;
+    border-radius: 10px 0 0 10px;
+}
+
+.menu-action button {
+    margin-right: 10px;
+}
