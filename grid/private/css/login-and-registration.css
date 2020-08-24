@@ -156,3 +156,24 @@ body {
     width: 600px;
   }
 }
+
+
+.box-el {
+  padding: 50px;
+  position: absolute;
+}
+
+.box-info {
+  background-color: darkcyan;
+  color: #ddd;
+}
+
+.box-warning {
+  background-color: darkgoldenrod;
+  color: #fff;
+}
+
+.box-error {
+  background-color: darkred;
+  color: #fff;
+}

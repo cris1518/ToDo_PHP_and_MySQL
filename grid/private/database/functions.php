@@ -26,6 +26,33 @@ function DBDisconnect($connection)
 }
 
 
+
+ 
+function GetUsrImg($DB, $id)
+{
+    $qry='SELECT ImgProfile from users WHERE id='.$id.';';
+    $result=mysqli_query($DB, $qry);
+    $count=mysqli_num_rows($result);
+    if ($count>0) {
+        $user=$result->fetch_row()[0];
+        
+        $img=$user!=="" & !empty($user) ? $user :  WWW_PUBLIC."/img/user.png";
+        return $img;
+    } else {
+        return WWW_PUBLIC."/img/user.png";
+    }
+}
+
+
+ 
+function SetUsrImg($DB, $id, $path)
+{
+    $qry='UPDATE users SET ImgProfile="'.$path.'"   WHERE id='.$id.';';
+    $result=mysqli_query($DB, $qry);
+}
+
+
+
 function DBGetToDo($DB, $USER, $compl)
 {
     $qry='SELECT * FROM todo WHERE User='.$USER["id"].' AND Completed='.$compl.';';

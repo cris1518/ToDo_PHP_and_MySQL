@@ -1,76 +1,126 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Versione server:              10.4.13-MariaDB - mariadb.org binary distribution
--- S.O. server:                  Win64
--- HeidiSQL Versione:            11.0.0.5919
--- --------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Creato il: Ago 24, 2020 alle 11:27
+-- Versione del server: 10.4.13-MariaDB
+-- Versione PHP: 7.4.7
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Database: `dev`
+--
 
--- Dump della struttura del database dev
-CREATE DATABASE IF NOT EXISTS `dev` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-USE `dev`;
+-- --------------------------------------------------------
 
--- Dump della struttura di tabella dev.rows_seq
-CREATE TABLE IF NOT EXISTS `rows_seq` (
+--
+-- Struttura della tabella `rows_seq`
+--
+
+CREATE TABLE `rows_seq` (
   `id` int(11) NOT NULL,
   `Last` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- L’esportazione dei dati non era selezionata.
+-- --------------------------------------------------------
 
--- Dump della struttura di tabella dev.todo
-CREATE TABLE IF NOT EXISTS `todo` (
+--
+-- Struttura della tabella `todo`
+--
+
+CREATE TABLE `todo` (
   `id` int(11) NOT NULL,
   `Title` varchar(255) NOT NULL,
   `ShDescr` varchar(255) NOT NULL,
   `Completed` int(11) NOT NULL DEFAULT 0,
   `User` int(11) NOT NULL DEFAULT 0,
-  `Background` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  `Background` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- L’esportazione dei dati non era selezionata.
+-- --------------------------------------------------------
 
--- Dump della struttura di tabella dev.todo_rows
-CREATE TABLE IF NOT EXISTS `todo_rows` (
+--
+-- Struttura della tabella `todo_rows`
+--
+
+CREATE TABLE `todo_rows` (
   `id` int(11) NOT NULL,
   `Todo_id` int(11) NOT NULL,
   `Title` varchar(255) NOT NULL,
-  `Checked` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `Checked` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- L’esportazione dei dati non era selezionata.
+-- --------------------------------------------------------
 
--- Dump della struttura di tabella dev.todo_seq
-CREATE TABLE IF NOT EXISTS `todo_seq` (
+--
+-- Struttura della tabella `todo_seq`
+--
+
+CREATE TABLE `todo_seq` (
   `id` int(11) NOT NULL,
   `Last` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- L’esportazione dei dati non era selezionata.
+-- --------------------------------------------------------
 
--- Dump della struttura di tabella dev.users
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+--
+-- Struttura della tabella `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
   `FirstName` varchar(255) NOT NULL,
   `LastName` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Username` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `ImgProfile` varchar(255) NOT NULL,
-  `SesToken` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+  `SesToken` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- L’esportazione dei dati non era selezionata.
+--
+-- Indici per le tabelle scaricate
+--
 
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+--
+-- Indici per le tabelle `todo`
+--
+ALTER TABLE `todo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `todo_rows`
+--
+ALTER TABLE `todo_rows`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT per le tabelle scaricate
+--
+
+--
+-- AUTO_INCREMENT per la tabella `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

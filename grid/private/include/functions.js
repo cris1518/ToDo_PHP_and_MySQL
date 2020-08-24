@@ -93,3 +93,8 @@ function jsComplToDo(id) {
     }
   });
 }
+
+function shwImg() {
+
+  document.querySelectorAll(".modal_img")[0].style = "opacity:1;visibility:unset;";
+}
