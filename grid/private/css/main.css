@@ -313,12 +313,41 @@ nav ul {
 .usr-img {
     height: 135px;
     width: 135px;
-    padding: 20px;
+    padding: 10px;
     background: #0a67c1;
     border-radius: 15px;
     object-fit: fill;
 
 }
+
+.usr-img-up {
+    height: 115px;
+    padding: 20px;
+    background: #529fff;
+    border-radius: 15px;
+    width: 114px;
+    margin-left: 33px;
+    margin-top: -160px;
+    position: fixed;
+    opacity: 0;
+    transition: opacity 0.2s ease-in 10ms;
+    cursor: pointer;
+    color: #fff;
+}
+
+.usr-img-up:hover {
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out 10ms;
+    cursor: pointer;
+}
+
+.usr-img-cont {
+    height: 100%;
+    padding: 48px 0 0 5px;
+    font-weight: 600;
+}
+
+
 
 .user-container {
     display: block;
@@ -416,30 +445,4 @@ nav ul {
     font-size: 1.3em;
     padding: 5px 10px 5px 10px;
     border-radius: 10px;
-}
-
-.usr-img-up {
-    height: 135px;
-    padding: 20px;
-    background: #529fff;
-    border-radius: 15px;
-    width: 135px;
-    margin-left: 22px;
-    margin-top: -180px;
-    position: fixed;
-    opacity: 0;
-    transition: opacity 0.2s ease-in 10ms;
-    cursor: pointer;
-    color: #fff;
-}
-
-.usr-img-up:hover {
-    opacity: 1;
-    transition: opacity 0.25s ease-in-out 10ms;
-}
-
-.usr-img-cont {
-    height: 100%;
-    padding: 56px 0 0 5px;
-    font-weight: 600;
 }

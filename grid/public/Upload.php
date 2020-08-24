@@ -30,5 +30,11 @@ if (move_uploaded_file($userfile_tmp, $uploaddir . $userfile_name)) {
     echo '<script>location.href="index.php"</script>';
 } else {
     //Se l'operazione è fallta...
-    echo 'Upload NON valido!';
+  
+
+    echo '<html><body style="      font-family: \'Open Sans\', sans-serif;  background-color: #064786;"><div style="position:absolute;left:40%;top:50%;width:100%;height:100%;">
+    <h2 style="color:#fff;font-size:30px;">
+  <i class="fas fa-exclamation-triangle"></i>&nbsp;
+    Upload NON valido! &nbsp;<i class="fas fa-exclamation-triangle"></i></h2></div></body></html>';
+    echo '<script>setTimeout(function(){location.href="index.php"},2000)</script>';
 }
