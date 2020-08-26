@@ -66,7 +66,7 @@ require WWW_PRIVATE . "/include/header.php"
                     <td class="td-add"><label class="btn-add" for="modal-2"><i class="fas fa-plus"></i></label></td>
                 </tr>
             </table>
-            <div class="grid">
+            <div class="grid" id="grid">
 
                 <?php echo $tdhtml ?>
 
@@ -118,7 +118,9 @@ require WWW_PRIVATE . "/include/header.php"
                     </tr>
                 </table>
                 <div class="modal__save" for="modal-2">
-                    <button type="submit" class="empty-btn"> <i class="mdsave fas fa-save"></i> </button></div>
+                    <button type="button" onclick="CreateToDo() " class="empty-btn"> <i class="mdsave fas fa-save"></i>
+                    </button>
+                </div>
             </form>
         </div>
     </div>
@@ -190,7 +192,6 @@ if ($_GET) {
     $title = str_replace("'", "`", $_POST["ToDoName"]);
     $descr = str_replace("'", "`", $_POST["ToDoDescr"]);
     DBCreateToDo($DB, $title, $descr, $USER);
-    '<script>location.reload</script>';
 }
 ?>
 

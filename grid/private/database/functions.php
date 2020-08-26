@@ -136,11 +136,10 @@ function DBCreateToDo($DB, $title, $descr, $USER)
     $seq=intval(DBGetToDoSeq($DB));
     $nseq=$seq+1;
     $qry="INSERT INTO todo (id,Title,ShDescr,Completed,User,Background) VALUES ($nseq,'$title','$descr',0,".$USER["id"].",' '); ";
-    echo $qry;
+     
     $result=mysqli_query($DB, $qry);
-    echo "<h1>".$nseq."</h1>";
+   
     DBIncrementToDoSeq($DB, $nseq);
-    echo '<script>location.href="'.WWW_PUBLIC.'"</script>';
 }
 
 function DBDeleteToDo($DB, $id)
@@ -243,7 +242,7 @@ function PrepareToDo($DB, $USER, $compl)
             $title=$row["Title"];
             $descr=$row["ShDescr"];
             $html.= "<div  class='box'>
- <div class='ToDo-Del-Cont'> <i class='fas fa-minus' onclick='jsDelToDo($id)'></i></div>
+ <div class='ToDo-Del-Cont'> <i class='fas fa-minus' onclick='jsDelToDo($id,this,$compl)'></i></div>
  ";
             if ($compl==0) {
                 $html.="<div class='ToDo-Del-Cont'>  <i class='fas fa-archive' onclick='jsComplToDo($id)'></i> </div>";
@@ -362,7 +361,7 @@ function genToken($DB, $username)
     $string = bin2hex(random_bytes(10));
     $qry="UPDATE users SET SesToken='$string' WHERE   Username='$username' ; ";
     $result=mysqli_query($DB, $qry);
-    setcookie("SesToken", $string, time() +2592000);
+    setcookie("SesToken", $string, time() +2592000, "/");
 }
 
 

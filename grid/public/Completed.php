@@ -24,15 +24,23 @@ require WWW_PRIVATE . "/include/header.php"
 
     <section class="el-container">
 
-        <nav class="cont-left">
+       <nav class="cont-left">
             <div class="user-container">
-                <img src="<?php echo WWW_PUBLIC; ?>/img/user.png"
+
+                <img src="<?php  echo GetUsrImg($DB, $USER['id']); ?>"
                     class="usr-img">
+                <div class="usr-img-up">
+                    <label for="modal-1">
+                        <div class="usr-img-cont" for="modal-1">
+                            CARICA&nbsp;&nbsp;<i class='fas fa-upload'> </i></div>
+                    </label>
+                </div>
                 <h4 class="user-name"><?php echo $USER['Username']; ?>
                 </h4>
 
 
             </div>
+
             <?php echo $nav ?>
             <ul>
 
@@ -57,7 +65,7 @@ require WWW_PRIVATE . "/include/header.php"
                     <td class="td-add"> </td>
                 </tr>
             </table>
-            <div class="grid">
+            <div class="grid" id="grid">
 
                 <?php echo $tdhtml ?>
 

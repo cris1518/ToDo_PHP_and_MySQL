@@ -33,8 +33,7 @@ function reloadPage() {
 }
 
 //FUNCTION USED FOR DELETE TODO IN HOME PAGE
-function jsDelToDo(id) {
-
+function jsDelToDo(id, el, compl) {
 
   var r = confirm("ELIMINARE TODO " + id);
   if (r == true) {
@@ -42,7 +41,8 @@ function jsDelToDo(id) {
       url: "../private/include/DelToDo.php?todo=" + id, //the page containing php script
       type: "POST", //request type
       success: function (result) {
-        location.reload();
+        // el.parentElement.parentElement.outerHTML = ''
+        reloadToDo(compl)
       }
     });
   } else {}
@@ -89,7 +89,7 @@ function jsComplToDo(id) {
     type: "POST", //request type
     success: function (result) {
 
-      location.href = "index.php";
+      reloadToDo(0)
     }
   });
 }
@@ -97,4 +97,43 @@ function jsComplToDo(id) {
 function shwImg() {
 
   document.querySelectorAll(".modal_img")[0].style = "opacity:1;visibility:unset;";
+}
+
+
+function reloadToDo(compl) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "../private/include/HTML_ListToDo.php?Compl=" + compl, true);
+  xhr.onreadystatechange = function () {
+    var state = xhr.readyState;
+    if (state == 4) {
+      var str = xhr.responseText;
+      var target = document.querySelector("#grid");
+      target.innerHTML = str;
+      document.getElementById("modal-2").checked = false;
+
+
+    }
+  };
+
+  xhr.send();
+
+
+}
+
+function CreateToDo() {
+  var name = document.getElementById("NewTodo").value;
+  var descr = document.getElementById("TodoDescr").value;
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "../private/include/CreateToDo.php?Name=" + name + "&Descr=" + descr, true);
+  xhr.onreadystatechange = function () {
+    var state = xhr.readyState;
+    if (state == 4) {
+      var resp = xhr.responseText;
+      reloadToDo(0);
+    }
+  };
+
+
+  xhr.send();
+
 }
