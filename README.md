@@ -1,5 +1,5 @@
 # ToDo PHP and MySQL
-Simple Responsive ToDo app with PHP and MySQL
+Simple Responsive ToDo app with PHP and MySQL<br>
 This app is a test after taking <a href='https://www.linkedin.com/learning/paths/become-a-php-developer-2'>this course</a>
 
 <h1>INSTRUCTIONS</h1>
