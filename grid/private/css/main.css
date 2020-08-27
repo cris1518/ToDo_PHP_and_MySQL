@@ -439,6 +439,29 @@ nav ul {
     border-radius: 5px !important;
 }
 
+.inptError {
+    width: 100%;
+    background: #810a0a !important;
+}
+
+.inptError :hover,
+.inptError :focus,
+.inptError :active {
+
+    border-bottom: 1px solid #af1212 !important;
+}
+
+.errDescr {
+    background: red;
+    padding: 7px;
+    border-radius: 10px;
+    color: #ffff;
+    float: right;
+    position: absolute;
+    left: 25%;
+
+}
+
 .empty-add {
     cursor: pointer;
     background: #0a67c1;

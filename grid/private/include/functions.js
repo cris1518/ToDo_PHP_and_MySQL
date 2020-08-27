@@ -120,6 +120,37 @@ function reloadToDo(compl) {
 
 }
 
+function ClearAlert(formid) {
+  var form = document.getElementById(formid);
+  var inputs = form.querySelectorAll("input")
+  var spans = form.querySelectorAll("span")
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].setAttribute("class", "inpt")
+    inputs[i].value = ""
+  }
+
+  for (var i = 0; i < spans.length; i++) {
+    spans[i].setAttribute("class", "")
+    spans[i].innerHTML = ""
+  }
+
+}
+
+function AlertForm(objj) {
+
+  for (var i = 0; i < objj.length; i++) {
+    var item = objj[i];
+    var arr = item.split("*")
+    var id = arr[0];
+    var title = arr[1];
+    var target = document.getElementById(id);
+    target.innerHTML = title;
+    target.setAttribute("class", "errDescr");
+    target.parentElement.querySelector("input").setAttribute("class", "inpt inptError");
+  }
+
+}
+
 function CreateToDo() {
   var name = document.getElementById("NewTodo").value;
   var descr = document.getElementById("TodoDescr").value;
@@ -129,7 +160,15 @@ function CreateToDo() {
     var state = xhr.readyState;
     if (state == 4) {
       var resp = xhr.responseText;
-      reloadToDo(0);
+      resp = JSON.parse(resp);
+
+
+      if (resp.hasOwnProperty("errors") == true) {
+        AlertForm(resp.errors);
+      } else {
+
+        reloadToDo(0);
+      }
     }
   };
 

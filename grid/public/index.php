@@ -63,7 +63,8 @@ require WWW_PRIVATE . "/include/header.php"
                     <td class="td-title">
                         <h1><i class="fas fa-clipboard-list"></i> Elenco ToDo</h1>
                     </td>
-                    <td class="td-add"><label class="btn-add" for="modal-2"><i class="fas fa-plus"></i></label></td>
+                    <td class="td-add"><label onclick="ClearAlert('TDForm')" class="btn-add" for="modal-2"><i
+                                class="fas fa-plus"></i></label></td>
                 </tr>
             </table>
             <div class="grid" id="grid">
@@ -92,28 +93,32 @@ require WWW_PRIVATE . "/include/header.php"
                 <h2> New ToDo</h2>
             </header>
             <form method="post"
-                action="<?=$_SERVER['PHP_SELF']; ?>">
+                action="<?=$_SERVER['PHP_SELF']; ?>"
+                id='TDForm'>
                 <table>
                     <tr>
                         <td>
-                            ToDo Name:
+                            Nome ToDo:
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input name="ToDoName" type="text" id="NewTodo" class="inpt" style="width:100%;"
+                            <span id='title'></span>
+                            <input name="ToDoName" type="text" id="NewTodo" class="inpt" style="width:90% !important;"
                                 maxlength='20'></input>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Description:
+                            Descrizione:
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input name="ToDoDescr" type="text" id="TodoDescr" class="inpt" style="width:100%;"
-                                maxlength='100'></input>
+                            <span id='descr'></span>
+
+                            <input name="ToDoDescr" type="text" id="TodoDescr" class="inpt"
+                                style="width:90% !important;" maxlength='100'></input>
                         </td>
                     </tr>
                 </table>
